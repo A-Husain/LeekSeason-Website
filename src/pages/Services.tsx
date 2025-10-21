@@ -118,7 +118,7 @@ export default function Services({ onNavigate }: ServicesProps) {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center space-y-4">
           <button
             onClick={() => onNavigate('plan')}
             className="group inline-flex items-center gap-2 bg-[#06bdff] text-white px-6 py-2.5 font-medium text-xs tracking-wide hover:bg-[#05a5e6] transition-colors shadow-lg shadow-[#06bdff]/20 hover:shadow-[#06bdff]/40"
@@ -126,6 +126,36 @@ export default function Services({ onNavigate }: ServicesProps) {
             Let's Build Your Strategy
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
           </button>
+
+          <div className="text-center">
+            <p className="text-xs text-[#C0C0C0] mb-3">Want to add a consultation to your package?</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => onNavigate('plan', 'basic-30min')}
+                className="group inline-flex items-center gap-2 bg-[#1a1a1a] border border-[#06bdff] text-[#06bdff] px-4 py-2 font-medium text-xs tracking-wide hover:bg-[#06bdff] hover:text-white transition-colors"
+              >
+                Basic + 30min Consult
+              </button>
+              <button
+                onClick={() => onNavigate('plan', 'basic-1hour')}
+                className="group inline-flex items-center gap-2 bg-[#1a1a1a] border border-[#06bdff] text-[#06bdff] px-4 py-2 font-medium text-xs tracking-wide hover:bg-[#06bdff] hover:text-white transition-colors"
+              >
+                Basic + 1hr Consult
+              </button>
+              <button
+                onClick={() => onNavigate('plan', 'advanced-30min')}
+                className="group inline-flex items-center gap-2 bg-[#1a1a1a] border border-[#06bdff] text-[#06bdff] px-4 py-2 font-medium text-xs tracking-wide hover:bg-[#06bdff] hover:text-white transition-colors"
+              >
+                Advanced + 30min Consult
+              </button>
+              <button
+                onClick={() => onNavigate('plan', 'advanced-1hour')}
+                className="group inline-flex items-center gap-2 bg-[#1a1a1a] border border-[#06bdff] text-[#06bdff] px-4 py-2 font-medium text-xs tracking-wide hover:bg-[#06bdff] hover:text-white transition-colors"
+              >
+                Advanced + 1hr Consult
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
