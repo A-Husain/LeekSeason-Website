@@ -6,8 +6,10 @@ import Services from './pages/Services';
 import Plan from './pages/Plan';
 import Confirmation from './pages/Confirmation';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
-type Page = 'home' | 'services' | 'plan' | 'confirmation' | 'contact';
+type Page = 'home' | 'services' | 'plan' | 'confirmation' | 'contact' | 'privacy' | 'terms';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -36,9 +38,11 @@ function App() {
         )}
         {currentPage === 'confirmation' && <Confirmation onNavigate={handleNavigate} />}
         {currentPage === 'contact' && <Contact />}
+        {currentPage === 'privacy' && <Privacy onNavigate={handleNavigate} />}
+        {currentPage === 'terms' && <Terms onNavigate={handleNavigate} />}
       </main>
 
-      <Footer currentPage={currentPage} />
+      <Footer currentPage={currentPage} onNavigate={handleNavigate} />
     </div>
   );
 }
