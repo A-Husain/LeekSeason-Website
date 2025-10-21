@@ -71,7 +71,10 @@ export default function Privacy({ onNavigate }: PrivacyProps) {
                         <p className="text-sm sm:text-base text-[#C0C0C0] mb-6 leading-relaxed">
                             If you have any questions about this Privacy Policy, please contact:<br />
                             LeekSeason LLC<br />
-                            Minnetonka, MN 55345<br />
+                            12800 Whitewater Dr<br />
+                            STE 100<br />
+                            Minnetonka, MN 55343-9347<br />
+                            USA<br />
                             <a href="mailto:contact@leekseason.com" className="text-[#06bdff] hover:text-[#05a5e6] transition-colors">
                                 contact@leekseason.com
                             </a>
