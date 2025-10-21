@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 interface NavigationProps {
   currentPage: string;
@@ -19,23 +20,19 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm border-b transition-colors bg-[#E6E6E6]/95 border-[#C0C0C0]/40">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <button
-            onClick={() => onNavigate('home')}
-            className="text-2xl font-bold tracking-wider transition-colors text-[#1a1a1a] hover:text-[#06bdff]"
-          >
-            LEEKSEASON, LLC
-          </button>
+          <div className="flex items-center">
+            <Logo onNavigate={onNavigate} />
+          </div>
 
           <div className="hidden md:flex items-center space-x-12">
             {navItems.map((item) => (
               <button
                 key={item.page}
                 onClick={() => onNavigate(item.page)}
-                className={`text-sm font-medium tracking-widest transition-colors ${
-                  currentPage === item.page
-                    ? 'text-[#06bdff]'
-                    : 'text-[#1a1a1a] hover:text-[#06bdff]'
-                }`}
+                className={`text-sm font-medium tracking-widest transition-colors ${currentPage === item.page
+                  ? 'text-[#06bdff]'
+                  : 'text-[#1a1a1a] hover:text-[#06bdff]'
+                  }`}
               >
                 {item.label}
               </button>
@@ -61,11 +58,10 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
                   onNavigate(item.page);
                   setMobileMenuOpen(false);
                 }}
-                className={`block w-full text-left text-sm font-medium tracking-widest transition-colors ${
-                  currentPage === item.page
-                    ? 'text-[#06bdff]'
-                    : 'text-[#1a1a1a] hover:text-[#06bdff]'
-                }`}
+                className={`block w-full text-left text-sm font-medium tracking-widest transition-colors ${currentPage === item.page
+                  ? 'text-[#06bdff]'
+                  : 'text-[#1a1a1a] hover:text-[#06bdff]'
+                  }`}
               >
                 {item.label}
               </button>
