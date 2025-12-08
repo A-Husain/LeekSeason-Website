@@ -14,6 +14,7 @@ export default function Navigation({ currentPage, onNavigate }: NavigationProps)
     { label: 'HOME', page: 'home' },
     { label: 'SERVICES', page: 'services' },
     { label: 'CONSULTATIONS', page: 'consultations' },
+    { label: 'ACCESS', page: 'access' },
     { label: 'CONTACT', page: 'contact' },
   ];
 

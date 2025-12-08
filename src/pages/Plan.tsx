@@ -10,7 +10,7 @@ const packageDetails: Record<string, { name: string; price: string; type: 'packa
   basic: { name: 'Basic Package', price: '$2,500', type: 'package' },
   advanced: { name: 'Advanced Package', price: '$5,000', type: 'package' },
   elite: { name: 'Elite Package', price: '$10,000', type: 'package' },
-  negotiated: { name: 'Negotiated Package', price: 'Custom Pricing', type: 'package' },
+  negotiated: { name: 'Negotiated Package', price: 'Custom Pricing', type: 'package', description: 'Custom pricing based on your specific needs. Payment processed through secure Square checkout.' },
   '30min': { name: '30-Minute Consultation', price: '$100', type: 'consultation' },
   '1hour': { name: '1-Hour Consultation', price: '$200', type: 'consultation' },
   'basic-30min': {
@@ -65,6 +65,13 @@ export default function Plan({ selectedPackage, onNavigate }: PlanProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // If it's the negotiated package, redirect to Square payment link
+    if (selectedPackage === 'negotiated') {
+      window.open('https://square.link/u/VtFDsXbg', '_blank');
+      return;
+    }
+
     onNavigate('confirmation');
   };
 
@@ -294,7 +301,9 @@ export default function Plan({ selectedPackage, onNavigate }: PlanProps) {
                 ? "All payments are processed securely. We'll contact you within 48 hours to schedule your consultation."
                 : isBundle
                   ? "All payments are processed securely. Your package will begin immediately, and we'll contact you within 48 hours to schedule your consultation session."
-                  : "All payments are processed securely. You'll receive a confirmation email and onboarding guide within 24 hours."
+                  : selectedPackage === 'negotiated'
+                    ? "Your information has been collected. Click the button above to complete your secure payment through Square."
+                    : "All payments are processed securely. You'll receive a confirmation email and onboarding guide within 24 hours."
               }
             </p>
           </div>
@@ -304,7 +313,7 @@ export default function Plan({ selectedPackage, onNavigate }: PlanProps) {
             disabled={!selectedPkg}
             className="w-full group inline-flex items-center justify-center gap-3 bg-[#06bdff] text-white px-10 py-4 font-medium text-lg tracking-wide hover:bg-[#05a5e6] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#06bdff]/20 hover:shadow-[#06bdff]/40"
           >
-            {isConsultation ? 'Book Consultation' : isBundle ? 'Complete Bundle' : 'Secure My Plan'}
+            {isConsultation ? 'Book Consultation' : isBundle ? 'Complete Bundle' : selectedPackage === 'negotiated' ? 'Complete Payment on Square' : 'Secure My Plan'}
             <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
           </button>
         </form>
