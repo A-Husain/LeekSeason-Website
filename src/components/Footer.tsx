@@ -22,6 +22,13 @@ export default function Footer({ currentPage = 'home', onNavigate }: FooterProps
               className="hover:text-[#06bdff] transition-colors"
             >
               Terms of Service
+            </button>{' '}
+            |{' '}
+            <button
+              onClick={() => onNavigate?.('dispute')}
+              className="hover:text-[#06bdff] transition-colors"
+            >
+              Submit a Dispute
             </button>
           </p>
           <p className="text-sm text-[#2C2C2C]">
