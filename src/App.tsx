@@ -11,8 +11,9 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Dispute from './pages/Dispute';
+import About from './pages/About';
 
-type Page = 'home' | 'services' | 'consultations' | 'access' | 'plan' | 'confirmation' | 'contact' | 'privacy' | 'terms' | 'dispute';
+type Page = 'home' | 'services' | 'consultations' | 'access' | 'plan' | 'confirmation' | 'contact' | 'privacy' | 'terms' | 'dispute' | 'about';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -46,6 +47,7 @@ function App() {
         {currentPage === 'privacy' && <Privacy onNavigate={handleNavigate} />}
         {currentPage === 'terms' && <Terms onNavigate={handleNavigate} />}
         {currentPage === 'dispute' && <Dispute onNavigate={handleNavigate} />}
+        {currentPage === 'about' && <About onNavigate={handleNavigate} />}
       </main>
 
       <Footer currentPage={currentPage} onNavigate={handleNavigate} />
