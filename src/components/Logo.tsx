@@ -1,4 +1,4 @@
-import logoImage from '../logo.png';
+import logoImage from '../logo.svg';
 
 interface LogoProps {
     className?: string;
@@ -7,23 +7,15 @@ interface LogoProps {
 
 export default function Logo({ className = "", onNavigate }: LogoProps) {
     return (
-        <div className={`flex items-center gap-0.1 ${className}`}>
-            {/* Logo Image - Non-clickable */}
-            <div className="w-12 h-12 flex items-center justify-center">
-                <img
-                    src={logoImage}
-                    alt="LeekSeason Logo"
-                    className="max-w-full max-h-full object-contain"
-                />
-            </div>
-
-            {/* LEEKSEASON Text - Clickable and hoverable */}
-            <button
-                onClick={() => onNavigate('home')}
-                className="text-lg font-bold tracking-wider text-[#1a1a1a] hover:text-[#06bdff] transition-colors cursor-pointer"
-            >
-                LEEKSEASON
-            </button>
-        </div>
+        <button
+            onClick={() => onNavigate('home')}
+            className={`flex items-center cursor-pointer hover:opacity-80 transition-opacity ${className}`}
+        >
+            <img
+                src={logoImage}
+                alt="LeekSeason Logo"
+                className="h-12 w-auto object-contain"
+            />
+        </button>
     );
 }
